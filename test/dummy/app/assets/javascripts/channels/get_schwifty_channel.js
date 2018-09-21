@@ -14,6 +14,6 @@ document.addEventListener('getSchwifty.render:after', function(ev) {
   console.log(ev);
 }, false)
 
-document.addEventListener("DOMContentLoaded", function() {
+$( document ).on('turbolinks:load', function() {
   GetSchwifty(App).showMeWhatYouGot('body');
 }, false);
