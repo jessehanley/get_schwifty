@@ -17,16 +17,20 @@ module GetSchwifty
       def stream(*args)
         ActionCable.server.broadcast(
           schwifty_job_id,
-          status: 200,
-          body: GetSchwiftyController.renderer.new.render(*args).squish
+          { 
+            status: 200,
+            body: GetSchwiftyController.renderer.new.render(*args).squish
+          }
         )
       end
 
       def redirect(url)
         ActionCable.server.broadcast(
           schwifty_job_id,
-          status: 302,
-          body: url
+          {
+            status: 302,
+            body: url
+          }
         )
       end
     end
